@@ -3,9 +3,7 @@
 textarea {
   resize: none;
   width: 100%;
-  padding: 10px;
-  height: 60vh;
-  margin: -10px;
+  height: 75vh;
   background: none repeat scroll 0 0 #FFFFFF;
   outline-width: 0;
   border:solid;
@@ -13,4 +11,20 @@ textarea {
 
 .notification {
   float:right;
+  margin-left: 50px;
+}
+
+.markdown {
+  overflow:auto;
+  outline-width: 0;
+  border:solid;
+  height: 75vh;
+}
+
+.increaseWidth {
+  width: 100%;
+}
+
+.markdownInner {
+  padding: 10px;
 }

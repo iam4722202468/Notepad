@@ -23,6 +23,7 @@ db.serialize(function() {
             VALUE TEXT)");
 });
 
+// Add a note
 router.post('/add', (req, res) => {
   var now = new Date();
   // Driver will do escaping

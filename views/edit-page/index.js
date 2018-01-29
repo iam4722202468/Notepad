@@ -3,19 +3,37 @@ import React from 'react'
 import style from './style'
 import axios from 'axios'
 
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import Remarkable from 'remarkable';
+var md = new Remarkable();
+
+import { Button, Form, FormGroup, Label, Input, FormText, InputGroup, Collapse, Col, Row} from 'reactstrap';
 
 class EditPage extends React.Component {
   constructor() {
     super();
+    this.toggle = this.toggle.bind(this);
+    this.onExited = this.onExited.bind(this);
+    
     this.state = {
       noteName: '',
       noteValue: '',
       id:0,
       message: '',
       isHidden: true,
+      leftSide: '12',
+      rightSide: '0',
       hideInvalid: {display: "block"}
     };
+  }
+  
+  onExited() {
+    this.setState({leftSide: '12', rightSide: '0'});
+  }
+  
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+    if (!this.state.collapse)
+      this.setState({leftSide: '6', rightSide: '6'});
   }
   
   onChange = (e) => {
@@ -54,23 +72,49 @@ class EditPage extends React.Component {
   }
   
   render() {
-    const { noteName, noteValue, message, hideInvalid } = this.state;
+    const { noteName, noteValue, message, hideInvalid, leftSide, rightSide } = this.state;
     return (
-    
-    <Form onSubmit={this.onSubmit}>
-    <FormGroup>
-      <h4 type="text" name="noteName">{noteName}{!this.state.isHidden && <Message>{message}</Message>}</h4>
-    </FormGroup>
-  
-  <FormGroup style={hideInvalid}>
-    <textarea placeholder="Enter a note" autoComplete="off" role="textbox" type="text" name="noteValue" value={noteValue} onChange={this.onChange}></textarea>
-  </FormGroup>
-  
-  <Button style={hideInvalid} type="submit">Update</Button>
-  </Form>
+    <div>
+      <h4 type="text" name="noteName">{noteName}
+        <Button className={style.notification} color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>
+          Toggle Markdown
+        </Button>
+        {!this.state.isHidden && <Message>{message}</Message>}
+      </h4>
+      
+      <Form onSubmit={this.onSubmit}>
+        <Row className={style.increaseWidth}>
+          <Col lg={leftSide}>
+            <FormGroup style={hideInvalid}>
+              <textarea placeholder="Enter a note" autoComplete="off" role="textbox" type="text" name="noteValue" value={noteValue} onChange={this.onChange}></textarea>
+            </FormGroup>
+          </Col>
+        
+          <Col lg={rightSide}>
+            <Collapse onExited={this.onExited} isOpen={this.state.collapse}>
+              <div className={style.markdown}>
+                <MarkdownViewer source={noteValue}/>
+              </div>
+            </Collapse>
+          </Col>
+        </Row>
+        
+        <div>
+        <Button style={hideInvalid} type="submit">Update</Button>
+        
+        </div>
+      </Form>
+    </div>
     );
   }
 }
+
+var MarkdownViewer = React.createClass({
+    render: function() {
+        var markdown = md.render(this.props.source);
+        return <div className={style.markdownInner} dangerouslySetInnerHTML={{__html:markdown}} />;
+    }
+});
 
 const Message = (props) => <p className={style.notification}>{props.children}</p>
 

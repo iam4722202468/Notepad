@@ -1,4 +1,5 @@
 
+
 ## Task:
     Create a notepad SPA (single page application) with a react and redux front-end and a rest API that uses a postgres, mysql, SQLite or Neo4j database to store notes. The project must meet the following requirements:
 
@@ -35,15 +36,21 @@
     Use the ReST API detailed above from your front-end React SPA
 
 ## Bonus:
+- [ ] Use graphql and relay to make requests (note a ReST api must still be provided)
 
-    Use graphql and relay to make requests (note a ReST api must still be provided)
-    Use auth0 to provide authentication and restrict users to only being able view, add and create their own notes. This will require modifying the ReST API to allow specifying the user (eg. GET /note/:id becomes GET /:user/note/:id and so on. Additionally there must be an additional route to authenticate the user.
-    Allow users to use markdown and show a live preview of the resulting document
-    Allow users to download a PDF copy of their note
-    Create a react-native application to manage a users notes that uses the note api that was written for this assignment
-    Create a native desktop app using your application and elecron
-    Use SASS for CSS
-    Use CSS animations and transitions to provide a nicer user experience
+- [ ] Use auth0 to provide authentication and restrict users to only being able view, add and create their own notes. This will require modifying the ReST API to allow specifying the user (eg. GET /note/:id becomes GET /:user/note/:id and so on. Additionally there must be an additional route to authenticate the user.
+
+- [x] Allow users to use markdown and show a live preview of the resulting document
+
+- [x] Allow users to download a PDF copy of their note
+
+- [ ] Create a react-native application to manage a users notes that uses the note api that was written for this assignment
+
+- [ ] Create a native desktop app using your application and elecron
+
+- [x] Use SASS for CSS
+
+- [ ] Use CSS animations and transitions to provide a nicer user experience
 
 ## Install:
 

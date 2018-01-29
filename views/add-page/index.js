@@ -3,15 +3,15 @@ import React from 'react'
 import style from './style'
 import axios from 'axios'
 
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Collapse, CardBody, Card, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class AddPage extends React.Component {
-  
-constructor() {
+
+  constructor() {
         super();
         this.state = {
           noteName: '',
-          noteValue: ''
+          noteValue: '',
         };
       }
       
@@ -23,7 +23,7 @@ constructor() {
 
       onSubmit = (e) => {
         e.preventDefault();
-        const { noteName, noteValue } = this.state;
+        const { collapse, noteName, noteValue } = this.state;
 
         axios.post('/note/add', { noteName, noteValue })
           .then((result) => {
@@ -36,7 +36,6 @@ constructor() {
         const { noteName, noteValue } = this.state;
         return (
         <Form onSubmit={this.onSubmit}>
-          
           <FormGroup>
           <Label for="noteName">Note Name</Label>
           <Input type="text" name="noteName" autoComplete="off" value={noteName} onChange={this.onChange} placeholder="New Note Name" />
@@ -45,9 +44,11 @@ constructor() {
           <FormGroup>
             <textarea placeholder="Enter a note" autoComplete="off" role="textbox" type="text" name="noteValue" value={noteValue} onChange={this.onChange}></textarea>
           </FormGroup>
-          
+
         <Button type="submit">Create</Button>
         </Form>
+        
+        
         );
       }
 
