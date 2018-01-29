@@ -1,0 +1,16 @@
+@import "../variables";
+
+textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  height: 60vh;
+  margin: -10px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  outline-width: 0;
+  border:solid;
+}
+
+.notification {
+  float:right;
+}
