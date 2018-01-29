@@ -26,6 +26,7 @@ db.serialize(function() {
 // Add a note
 router.post('/add', (req, res) => {
   var now = new Date();
+  
   // Driver will do escaping
   db.run('INSERT INTO NOTES(CREATED, EDITED, LENGTH, NAME, VALUE) VALUES(?, ?, ?, ?, ?)', [dateFormat(now), dateFormat(now), req.body.noteValue.length, req.body.noteName, req.body.noteValue], function(err) {
     if (err) {

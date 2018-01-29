@@ -15,6 +15,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 
 const env = process.env.NODE_ENV || 'development'
 const port = process.env.PORT || 3000
+process.env.TZ = "America/Toronto"
 
 /* Set up express */
 let app = express()

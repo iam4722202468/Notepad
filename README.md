@@ -1,5 +1,3 @@
-
-
 ## Task:
     Create a notepad SPA (single page application) with a react and redux front-end and a rest API that uses a postgres, mysql, SQLite or Neo4j database to store notes. The project must meet the following requirements:
 
@@ -30,6 +28,7 @@
 > GET /note/:id
 
 ## Update a note with a given id
+- noteValue is the note value (required)
 > PUT /note/:id
 
 ## Delete a note with a given id
@@ -61,3 +60,7 @@
 ## Run:
 
     npm start
+
+## Build:
+
+    npm run build
