@@ -84,13 +84,13 @@ class EditPage extends React.Component {
       
       <Form onSubmit={this.onSubmit}>
         <Row className={style.increaseWidth}>
-          <Col lg={leftSide}>
+          <Col xs={leftSide}>
             <FormGroup style={hideInvalid}>
               <textarea placeholder="Enter a note" autoComplete="off" role="textbox" type="text" name="noteValue" value={noteValue} onChange={this.onChange}></textarea>
             </FormGroup>
           </Col>
         
-          <Col lg={rightSide}>
+          <Col xs={rightSide}>
             <Collapse onExited={this.onExited} isOpen={this.state.collapse}>
               <div className={style.markdown}>
                 <MarkdownViewer source={noteValue}/>

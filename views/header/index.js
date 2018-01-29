@@ -10,7 +10,7 @@ class Header extends React.Component {
     return (
       <div>
       <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/">Text Editor</NavbarBrand>
+          <Link to="/" className={style.titleLink}>Text Editor</Link>
             <Nav navbar>
               <NavItem>
                 <Link className={style.indexLink} to="/view">View a note</Link>

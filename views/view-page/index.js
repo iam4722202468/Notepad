@@ -76,9 +76,9 @@ class EditPage extends React.Component {
     return (
       <div>
         <Row>
-          <Col xs="6" sm="4">{d1}</Col>
-          <Col xs="6" sm="4">{d2}</Col>
-          <Col sm="4">{d3}</Col>
+          <Col xl="4">{d1}</Col>
+          <Col xl="4">{d2}</Col>
+          <Col xl="4">{d3}</Col>
         </Row>
       </div>
     )
