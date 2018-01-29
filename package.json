@@ -47,7 +47,8 @@
     "remarkable": "^1.7.1",
     "serve-favicon": "^2.3.0",
     "sqlite3": "^3.1.13",
-    "transform-loader": "^0.2.4"
+    "transform-loader": "^0.2.4",
+    "dateformat":"3.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
