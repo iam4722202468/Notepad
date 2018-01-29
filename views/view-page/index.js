@@ -61,7 +61,7 @@ class EditPage extends React.Component {
           <ButtonGroup>
             <Link to={`edit/${note.id}`}><Button color="primary">Edit Note</Button></Link>
             <Link to="/view" onClick={() => this.handleDelete(note.id)}><Button color="danger">Delete Note</Button></Link>
-            <Button onClick={() => this.downloadFile(note.id)} color="info">Download as PDF</Button>
+            <Button onClick={() => this.downloadFile(note.id)} color="info">Download</Button>
           </ButtonGroup>
         </Card>
         <br/>

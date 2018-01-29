@@ -15,6 +15,8 @@
     Implement a ReST note management API with the following specification:
 
 ## Add a note
+- noteName is the note name (required)
+- noteValue is the note value (required)
 > POST /note/add
 
 ## Get notes, optionally specifying GET parameters where:
